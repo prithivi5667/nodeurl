@@ -25,11 +25,11 @@ mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true }, fun
 });
 
 routes(app);
-app.use(express.static(path.join(__dirname, "/react/build")));
+// app.use(express.static(path.join(__dirname, "/react/build")));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/react/build', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/react/build', 'index.html'));
+// });
 
 const port = process.env.PORT;
 const server = app.listen(process.env.PORT ||5000 , () =>
