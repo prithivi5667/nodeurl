@@ -5,14 +5,14 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const path = require('path')
-
+const cors = require('cors');
 console.log('Current folder: ' + __dirname);
 const  app = express();
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(cors())
 const dbURL = process.env.MONGO_DB_URL;
 
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true }, function(err){
